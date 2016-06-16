@@ -8,6 +8,7 @@ export default class Main extends Component {
         <h1>
           <Link to='/'>Reduxstagram</Link>
         </h1>
+        {this.props.children}
       </div>
     );
   }
