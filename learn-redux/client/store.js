@@ -4,8 +4,8 @@ import { browserHistory } from 'react-router';
 
 import rootReducer from './reducers/index';
 
-import comments from './data/comments';
 import posts from './data/posts';
+import comments from './data/comments';
 
 const defaultState = {
   posts,
