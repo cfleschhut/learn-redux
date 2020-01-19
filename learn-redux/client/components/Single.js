@@ -11,7 +11,7 @@ export default function Single(props) {
   return (
     <div className="single-photo">
       <Photo i={i} post={post} {...props} />
-      <Comments postComments={postComments} />
+      <Comments postComments={postComments} {...props} />
     </div>
   );
 }
