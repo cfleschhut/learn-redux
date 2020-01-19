@@ -4,10 +4,11 @@ export default class Comments extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.initialState = {
       author: '',
       comment: ''
     };
+    this.state = this.initialState;
   }
 
   handleChange({ target: { name, value } }) {
@@ -21,6 +22,12 @@ export default class Comments extends Component {
     const { author, comment } = this.state;
 
     this.props.addComment(postId, author, comment);
+
+    this.setState(this.initialState);
+  }
+
+  handleRemove(postId, index) {
+    this.props.removeComment(postId, index);
   }
 
   render() {
@@ -33,7 +40,12 @@ export default class Comments extends Component {
             <p>
               <strong>{comment.user}</strong>
               {comment.text}
-              <button className="remove-comment">&times;</button>
+              <button
+                onClick={() => this.handleRemove(this.props.params.postId, i)}
+                className="remove-comment"
+              >
+                &times;
+              </button>
             </p>
           </div>
         ))}
